@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ways to Officer — IBPS SO IT Mock Test</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header id="appHeader">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-name">Ways to Officer</span>
+      <span class="brand-tag">@waystoofficer</span>
+    </div>
+    <div id="headerTimer" class="header-timer hidden">
+      <span class="timer-label">Time Left</span>
+      <span id="timerValue" class="timer-value">00:00</span>
+    </div>
+    <button id="logoutBtn" class="btn btn-ghost hidden">Logout</button>
+  </div>
+</header>
+
+<main id="appMain">
+
+  <!-- ===================== LOGIN SCREEN ===================== -->
+  <section id="loginScreen" class="screen">
+    <div class="login-card">
+      <h1>IBPS SO IT Officer</h1>
+      <p class="subtitle">Full-Length Mock Test Series</p>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <p id="loginError" class="error-text hidden">Incorrect username or password.</p>
+      </form>
+      <p class="login-footer">Way2Officers Guide &middot; t.me/way2officersguide</p>
+    </div>
+  </section>
+
+  <!-- ===================== MOCK SELECTOR SCREEN ===================== -->
+  <section id="mockSelectScreen" class="screen hidden">
+    <div class="dashboard-wrap">
+      <h2>Welcome, Aspirant 👋</h2>
+      <p class="dash-sub">Choose a mock test to begin. Each mock has its own English, Quant, Reasoning, and
+        Professional Knowledge sections.</p>
+      <div id="mockCards" class="section-cards"></div>
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD / SECTION PICKER ===================== -->
+  <section id="dashboardScreen" class="screen hidden">
+    <div class="dashboard-wrap">
+      <button id="backToMocksBtn" class="btn btn-ghost" style="margin-bottom:16px;">&larr; All Mocks</button>
+      <h2 id="dashMockTitle">Mock Test</h2>
+      <p class="dash-sub">Choose a section to begin. Each section has its own timer, question palette, and detailed
+        result review with explanations. Professional Knowledge (all IT subjects combined) is the final section,
+        just like the real exam.</p>
+      <div id="sectionCards" class="section-cards"></div>
+
+      <div class="full-mock-box">
+        <div>
+          <h3>Full Mock (All Sections)</h3>
+          <p>Attempt English &rarr; Quant &rarr; Reasoning &rarr; Professional Knowledge back-to-back in one
+            continuous session, exactly like exam day.</p>
+        </div>
+        <button id="startFullMockBtn" class="btn btn-primary">Start Full Mock</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INSTRUCTIONS SCREEN ===================== -->
+  <section id="instructionsScreen" class="screen hidden">
+    <div class="instructions-card">
+      <h2 id="instrTitle">Instructions</h2>
+      <ul>
+        <li>This section contains <b id="instrCount">0</b> questions to be completed in <b id="instrTime">0</b>.</li>
+        <li>Each question has 5 options; choose the single best answer.</li>
+        <li>Use <b>Save &amp; Next</b> to move forward, or jump to any question using the palette on the right.</li>
+        <li>The timer counts down automatically; the section auto-submits when time runs out.</li>
+        <li>You can review and change answers any time before submitting.</li>
+        <li>After submission, you'll see your score plus every question marked correct/incorrect with a full
+          explanation.</li>
+      </ul>
+      <button id="beginBtn" class="btn btn-primary">I am ready, Begin</button>
+      <button id="backToDashBtn" class="btn btn-ghost">Back to Dashboard</button>
+    </div>
+  </section>
+
+  <!-- ===================== TEST SCREEN ===================== -->
+  <section id="testScreen" class="screen hidden">
+    <div class="test-layout">
+      <div class="test-main">
+        <div class="test-topbar">
+          <span id="currentSectionLabel" class="section-pill"></span>
+          <span id="questionProgress" class="progress-text"></span>
+        </div>
+
+        <div class="question-card">
+          <div id="questionTopic" class="topic-badge"></div>
+          <div id="questionText" class="question-text"></div>
+          <div id="optionsList" class="options-list"></div>
+        </div>
+
+        <div class="test-nav-buttons">
+          <button id="prevBtn" class="btn btn-ghost">&larr; Previous</button>
+          <button id="clearBtn" class="btn btn-ghost">Clear Response</button>
+          <button id="nextBtn" class="btn btn-primary">Save &amp; Next &rarr;</button>
+          <button id="submitSectionBtn" class="btn btn-danger">Submit Section</button>
+        </div>
+      </div>
+
+      <aside class="test-sidebar">
+        <div class="legend">
+          <div><span class="dot answered"></span> Answered</div>
+          <div><span class="dot notanswered"></span> Not Answered</div>
+          <div><span class="dot notvisited"></span> Not Visited</div>
+        </div>
+        <div id="questionPalette" class="palette"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS SCREEN ===================== -->
+  <section id="resultsScreen" class="screen hidden">
+    <div class="results-wrap">
+      <h2>Your Result</h2>
+      <div id="scoreSummary" class="score-summary"></div>
+      <div id="sectionBreakdown" class="section-breakdown"></div>
+
+      <div class="review-controls">
+        <h3>Detailed Review</h3>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="correct">Correct</button>
+          <button class="filter-btn" data-filter="wrong">Wrong</button>
+          <button class="filter-btn" data-filter="unanswered">Unanswered</button>
+        </div>
+      </div>
+      <div id="reviewList" class="review-list"></div>
+
+      <button id="backToDashFromResultsBtn" class="btn btn-primary">Back to Dashboard</button>
+    </div>
+  </section>
+
+</main>
+
+<footer id="appFooter">
+  <p>Ways to Officer &middot; Dpksanu — IBPS/RRB/IBPS SO IT Officer Exam Prep</p>
+  <p>Subscribe: YouTube — Way2Officers Guide &nbsp;|&nbsp; Telegram: t.me/way2officersguide</p>
+</footer>
+
+<script src="mock1-data.js"></script>
+<script src="mock2-data.js"></script>
+<script src="mocks-index.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
