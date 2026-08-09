@@ -1750,3 +1750,218 @@ img {
     font-size: 0.66rem;
   }
 }
+/* =========================================================
+   iPHONE / SAFARI NAVBAR FIX
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  #appHeader {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    width: 100%;
+    max-width: 100%;
+
+    min-width: 0;
+
+    padding:
+      9px
+      12px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ---------------- BRAND ---------------- */
+
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 7px;
+
+    overflow: hidden;
+  }
+
+  .nav-logo {
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+    max-width: 34px;
+
+    flex: 0 0 34px;
+
+    object-fit: contain;
+    display: block;
+  }
+
+  .brand-text {
+    min-width: 0;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow: hidden;
+  }
+
+  .brand-name {
+    display: block;
+
+    max-width: 100%;
+
+    font-size: 0.88rem;
+    line-height: 1.15;
+    font-weight: 700;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .brand-tag {
+    display: block;
+
+    max-width: 100%;
+
+    margin-top: 2px;
+
+    font-size: 0.60rem;
+    line-height: 1.1;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  /* ---------------- TIMER ---------------- */
+
+  .header-timer {
+    flex: 0 0 auto;
+
+    min-width: 48px;
+
+    padding: 4px 7px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+  }
+
+  .timer-label {
+    display: none;
+  }
+
+  .timer-value {
+    font-size: 0.82rem;
+
+    line-height: 1;
+
+    white-space: nowrap;
+  }
+
+
+  /* ---------------- LOGOUT ---------------- */
+
+  #logoutBtn {
+    flex: 0 0 auto;
+
+    width: auto;
+    min-width: 52px;
+
+    padding: 7px 9px;
+
+    font-size: 0.70rem;
+    line-height: 1.1;
+
+    white-space: nowrap;
+
+    box-sizing: border-box;
+  }
+}
+
+
+/* =========================================================
+   SMALL iPHONES
+   iPhone SE / narrow screens
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .header-inner {
+    padding-left: 9px;
+    padding-right: 9px;
+    gap: 6px;
+  }
+
+  .nav-logo {
+    width: 31px;
+    height: 31px;
+
+    min-width: 31px;
+    max-width: 31px;
+
+    flex-basis: 31px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand-name {
+    font-size: 0.80rem;
+  }
+
+  .brand-tag {
+    font-size: 0.55rem;
+  }
+
+  .header-timer {
+    min-width: 44px;
+    padding: 4px 5px;
+  }
+
+  .timer-value {
+    font-size: 0.76rem;
+  }
+
+  #logoutBtn {
+    min-width: 48px;
+    padding: 6px 7px;
+    font-size: 0.64rem;
+  }
+}
+
+
+/* =========================================================
+   iOS SAFE AREA
+   ========================================================= */
+
+@supports (padding: env(safe-area-inset-top)) {
+
+  #appHeader {
+    padding-top: env(safe-area-inset-top);
+  }
+
+}
