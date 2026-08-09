@@ -1009,7 +1009,8 @@ body {
   white-space: nowrap;
 }
 .brand2 {
-  display: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   font-size: 1.4rem;
@@ -1028,10 +1029,724 @@ body {
 
 #appFooter p { margin: 3px 0; }
 
-/* ============ RESPONSIVE ============ */
+/* =========================================================
+   FINAL RESPONSIVE SYSTEM
+   Ways to Officer — Mock Test
+   ========================================================= */
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================================
+   LOGIN / COMMON FIXES
+   ========================================================= */
+
+.brand2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.brand2 img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================================
+   TABLET — 801px and below
+   ========================================================= */
+
 @media (max-width: 800px) {
-  .test-layout { flex-direction: column; }
-  .test-sidebar { width: 100%; position: static; order: -1; }
-  .palette { grid-template-columns: repeat(8, 1fr); max-height: none; }
-  .login-card { padding: 28px 22px; }
+
+  .screen {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  .header-inner {
+    width: 100%;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1;
+    gap: 8px;
+  }
+
+  .nav-logo {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    min-width: 0;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .brand-tag {
+    font-size: 0.68rem;
+  }
+
+  .header-timer {
+    padding: 5px 10px;
+    flex-shrink: 0;
+  }
+
+  .timer-label {
+    font-size: 0.58rem;
+  }
+
+  .timer-value {
+    font-size: 1rem;
+  }
+
+  #logoutBtn {
+    padding: 8px 11px;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+  }
+
+  /* ---------- LOGIN ---------- */
+
+  #loginScreen {
+    min-height: auto;
+    width: 100%;
+    padding: 28px 14px 45px;
+    align-items: flex-start;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .login-card {
+    width: 100%;
+    padding: 27px 20px 22px;
+    border-radius: 16px;
+  }
+
+  .login-logo-wrapper {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 13px;
+    border-radius: 16px;
+  }
+
+  .login-logo {
+    width: 54px;
+    height: 54px;
+  }
+
+  .login-card h1 {
+    font-size: 1.32rem;
+    line-height: 1.25;
+  }
+
+  .login-card .subtitle {
+    font-size: 0.82rem;
+    margin-top: 6px;
+    margin-bottom: 22px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group label {
+    font-size: 0.78rem;
+  }
+
+  #loginForm input {
+    width: 100%;
+    min-width: 0;
+    height: 45px;
+    font-size: 0.88rem;
+    padding: 9px 40px 9px 36px;
+  }
+
+  .input-icon {
+    left: 11px;
+    font-size: 0.82rem;
+  }
+
+  .password-toggle {
+    right: 5px;
+  }
+
+  .login-btn {
+    width: 100%;
+    height: 45px;
+    font-size: 0.88rem;
+  }
+
+  .login-footer {
+    font-size: 0.68rem;
+    margin-top: 18px;
+    padding-top: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  /* ---------- LOGIN GUIDE ---------- */
+
+  .login-guide-card {
+    width: 100%;
+    margin-top: 14px;
+    padding: 15px;
+    border-radius: 13px;
+    border-left-width: 4px;
+  }
+
+  .login-guide-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+  }
+
+  .login-guide-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  .login-guide-text {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .login-guide-text h3 {
+    font-size: 0.88rem;
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+
+  .login-guide-text p {
+    font-size: 0.76rem;
+    line-height: 1.45;
+    margin-bottom: 11px;
+  }
+
+  .guide-btn {
+    max-width: 100%;
+    padding: 8px 11px;
+    font-size: 0.75rem;
+    white-space: normal;
+  }
+
+  /* ---------- DASHBOARD ---------- */
+
+  .dashboard-wrap {
+    width: 100%;
+  }
+
+  .dashboard-wrap h2 {
+    font-size: 1.35rem;
+  }
+
+  .dash-sub {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .section-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .section-card {
+    padding: 18px;
+  }
+
+  .full-mock-box {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .full-mock-box p {
+    font-size: 0.82rem;
+  }
+
+  .full-mock-box .btn {
+    width: 100%;
+  }
+
+  /* ---------- INSTRUCTIONS ---------- */
+
+  .instructions-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px 18px;
+    margin: 10px auto;
+  }
+
+  .instructions-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .instructions-card ul {
+    padding-left: 18px;
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+
+  .instructions-card .btn {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 10px;
+  }
+
+  /* ---------- TEST ---------- */
+
+  .test-layout {
+    width: 100%;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .test-main {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .test-sidebar {
+    width: 100%;
+    position: static;
+    order: -1;
+  }
+
+  .question-card {
+    padding: 19px 16px;
+  }
+
+  .question-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .option-item {
+    padding: 11px;
+    gap: 9px;
+  }
+
+  .option-text {
+    font-size: 0.86rem;
+    overflow-wrap: anywhere;
+  }
+
+  .test-nav-buttons {
+    gap: 8px;
+  }
+
+  .test-nav-buttons .btn {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .palette {
+    grid-template-columns: repeat(8, 1fr);
+    max-height: none;
+  }
+
+  /* ---------- RESULTS ---------- */
+
+  .score-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .score-box {
+    padding: 14px 10px;
+  }
+
+  .score-box .big {
+    font-size: 1.35rem;
+  }
+
+  .section-breakdown {
+    padding: 14px;
+  }
+
+  .breakdown-row {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+  }
+
+  .review-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filter-buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+  }
+
+  .filter-btn {
+    width: 100%;
+  }
+
+  .review-item {
+    padding: 15px;
+  }
+}
+
+/* =========================================================
+   MOBILE PHONE — 480px and below
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  /* ---------- HEADER ---------- */
+
+  .header-inner {
+    padding: 9px 11px;
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .nav-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-name {
+    font-size: 0.9rem;
+  }
+
+  .brand-tag {
+    font-size: 0.62rem;
+  }
+
+  .header-timer {
+    padding: 4px 7px;
+  }
+
+  .timer-label {
+    display: none;
+  }
+
+  .timer-value {
+    font-size: 0.9rem;
+  }
+
+  #logoutBtn {
+    padding: 7px 9px;
+    font-size: 0.72rem;
+  }
+
+  /* ---------- LOGIN ---------- */
+
+  #loginScreen {
+    padding: 20px 12px 35px;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-card {
+    padding: 24px 17px 20px;
+    border-radius: 15px;
+  }
+
+  .login-logo-wrapper {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    border-radius: 15px;
+  }
+
+  .login-logo {
+    width: 51px;
+    height: 51px;
+  }
+
+  .login-card h1 {
+    font-size: 1.18rem;
+  }
+
+  .login-card .subtitle {
+    font-size: 0.77rem;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 13px;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+  }
+
+  #loginForm input {
+    height: 43px;
+    font-size: 0.84rem;
+    padding: 9px 38px 9px 34px;
+    border-radius: 8px;
+  }
+
+  .input-icon {
+    left: 10px;
+    font-size: 0.78rem;
+  }
+
+  .password-toggle {
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .login-btn {
+    height: 43px;
+    margin-top: 5px;
+    font-size: 0.84rem;
+    border-radius: 8px;
+  }
+
+  .login-footer {
+    font-size: 0.64rem;
+    margin-top: 16px;
+    padding-top: 13px;
+  }
+
+  /* ---------- LOGIN GUIDE ---------- */
+
+  .login-guide-card {
+    margin-top: 12px;
+    padding: 13px;
+    border-radius: 12px;
+  }
+
+  .login-guide-content {
+    gap: 10px;
+  }
+
+  .login-guide-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 9px;
+    font-size: 0.9rem;
+  }
+
+  .login-guide-text h3 {
+    font-size: 0.82rem;
+  }
+
+  .login-guide-text p {
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
+
+  .guide-btn {
+    width: 100%;
+    padding: 8px 9px;
+    font-size: 0.7rem;
+    border-radius: 7px;
+  }
+
+  /* ---------- YOUTUBE MODAL ---------- */
+
+  .youtube-modal {
+    padding: 8px;
+  }
+
+  .youtube-modal-content {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .youtube-modal-content h3 {
+    font-size: 0.85rem;
+    margin-right: 30px;
+  }
+
+  .youtube-close {
+    top: 7px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+  }
+
+  /* ---------- TEST ---------- */
+
+  .test-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-pill {
+    max-width: 100%;
+    font-size: 0.75rem;
+  }
+
+  .progress-text {
+    font-size: 0.78rem;
+  }
+
+  .question-card {
+    padding: 16px 13px;
+    border-radius: 11px;
+  }
+
+  .topic-badge {
+    font-size: 0.68rem;
+  }
+
+  .question-text {
+    font-size: 0.9rem;
+  }
+
+  .option-item {
+    padding: 10px;
+  }
+
+  .option-letter {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+
+  .option-text {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .test-nav-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+  .test-nav-buttons .btn {
+    width: 100%;
+    font-size: 0.75rem;
+    padding: 9px 7px;
+  }
+
+  .palette {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  #appFooter {
+    padding: 14px 10px;
+    font-size: 0.65rem;
+    line-height: 1.45;
+  }
+
+  #appFooter p {
+    margin: 3px 0;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES — 360px and below
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  #loginScreen {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .login-card {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .login-card h1 {
+    font-size: 1.08rem;
+  }
+
+  .login-card .subtitle {
+    font-size: 0.72rem;
+  }
+
+  .login-guide-card {
+    padding: 11px;
+  }
+
+  .login-guide-content {
+    gap: 8px;
+  }
+
+  .login-guide-icon {
+    width: 33px;
+    height: 33px;
+    min-width: 33px;
+  }
+
+  .login-guide-text h3 {
+    font-size: 0.78rem;
+  }
+
+  .login-guide-text p {
+    font-size: 0.66rem;
+  }
+
+  .brand-name {
+    font-size: 0.82rem;
+  }
+
+  .brand-tag {
+    font-size: 0.57rem;
+  }
+
+  .nav-logo {
+    width: 31px;
+    height: 31px;
+  }
+
+  .header-timer {
+    padding: 3px 5px;
+  }
+
+  .timer-value {
+    font-size: 0.8rem;
+  }
+
+  #logoutBtn {
+    padding: 6px 7px;
+    font-size: 0.66rem;
+  }
 }
