@@ -4,7 +4,7 @@
 // ==================================================================================
 
 // ---------- CONFIG ----------
-const AUTH = { username: "Ways2officer", password: "Dpksanu" };
+const AUTH = { username: "Ways2officer" , password: "Dpksanu"};
 const SECONDS_PER_QUESTION = 40; // tune this to change how long each section's timer runs
 
 // ---------- STATE ----------
@@ -52,6 +52,15 @@ $("loginForm").addEventListener("submit", (e) => {
   } else {
     $("loginError").classList.remove("hidden");
   }
+});
+
+const watchLoginGuideBtn = $("watchLoginGuideBtn");
+
+watchLoginGuideBtn.addEventListener("click", () => {
+  window.open(
+    "https://www.youtube.com/watch?v=CDuhbnYZk-U&t=265s",
+    "_blank"
+  );
 });
 
 $("logoutBtn").addEventListener("click", () => {
