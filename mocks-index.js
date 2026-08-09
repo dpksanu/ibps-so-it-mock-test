@@ -17,13 +17,13 @@
 const MOCKS = [
   {
     id: "mock1",
-    title: "Mock Test 1 — Full Syllabus",
+    title: "Mock — Question Bank",
     description: "526 questions across English, Quant, Reasoning, and Professional Knowledge (DBMS, OS, Networks, DSA, OOPS, Software Engineering, COA & Microcontroller).",
     sections: MOCK1_SECTIONS,
   },
   {
     id: "mock2",
-    title: "Mock Test 2",
+    title: "Mock Test 1",
     description: "A starter template — replace the sample questions in mock2-data.js with your own content.",
     sections: MOCK2_SECTIONS,
   },
