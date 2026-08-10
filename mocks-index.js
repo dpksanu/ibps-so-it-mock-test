@@ -23,8 +23,8 @@ const MOCKS = [
   },
   {
     id: "mock2",
-    title: "Mock Test 1",
-    description: "A starter template — replace the sample questions in mock2-data.js with your own content.",
+    title: "Mock Test 1 (Prelims)",
+    description: "Mock Test 1 with questions across English, Quant, Reasoning, and Professional Knowledge (DBMS, OS, Networks, DSA, OOPS, Software Engineering, COA & Microcontroller etc.).",
     sections: MOCK2_SECTIONS,
   },
   // Add more mocks here, e.g.:

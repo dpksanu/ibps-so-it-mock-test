@@ -5,7 +5,7 @@
 
 // ---------- CONFIG ----------
 const AUTH = { username: "Ways2officer" , password: "Dpksanu"};
-const SECONDS_PER_QUESTION = 40; // tune this to change how long each section's timer runs
+const SECTION_TIME_SECONDS = 20 * 60; // tune this to change how long each section's timer runs
 
 // ---------- STATE ----------
 let state = {
@@ -128,18 +128,31 @@ function formatDuration(totalSeconds) {
 function renderDashboard() {
   const wrap = $("sectionCards");
   wrap.innerHTML = "";
+
   state.currentMock.sections.forEach((sec) => {
-    const seconds = sec.questions.length * SECONDS_PER_QUESTION;
+
+    const seconds = SECTION_TIME_SECONDS;
+
     const card = document.createElement("div");
     card.className = "section-card";
+
     card.innerHTML = `
       <h3>${sec.title}</h3>
-      <div class="meta">${sec.questions.length} Questions &middot; ${formatDuration(seconds)}</div>
-      <button class="btn btn-primary" data-section-id="${sec.id}">Start Section</button>
+      <div class="meta">
+        ${sec.questions.length} Questions &middot; 20 min
+      </div>
+
+      <button
+        class="btn btn-primary"
+        data-section-id="${sec.id}">
+        Start Section
+      </button>
     `;
+
     card.querySelector("button").addEventListener("click", () => {
       openInstructions([sec]);
     });
+
     wrap.appendChild(card);
   });
 }
@@ -154,15 +167,30 @@ $("startFullMockBtn").addEventListener("click", () => {
 let pendingSections = [];
 
 function openInstructions(sectionsToRun) {
+
   pendingSections = sectionsToRun;
-  const totalQ = sectionsToRun.reduce((sum, s) => sum + s.questions.length, 0);
-  const totalSeconds = totalQ * SECONDS_PER_QUESTION;
+
+  const totalQ = sectionsToRun.reduce(
+    (sum, s) => sum + s.questions.length,
+    0
+  );
+
+  // Every section gets exactly 20 minutes
+  const totalSeconds =
+    sectionsToRun.length * SECTION_TIME_SECONDS;
+
   const title = sectionsToRun.length > 1
     ? "Full Mock Test — All Sections"
     : sectionsToRun[0].title;
+
   $("instrTitle").textContent = title;
   $("instrCount").textContent = totalQ;
-  $("instrTime").textContent = formatDuration(totalSeconds);
+
+  $("instrTime").textContent =
+    sectionsToRun.length === 1
+      ? "20 min"
+      : formatDuration(totalSeconds);
+
   showScreen("instructions");
 }
 
@@ -193,16 +221,27 @@ function startTest(sectionsToRun) {
 }
 
 function startSectionTimer(section) {
+
   clearInterval(state.timerInterval);
-  state.timerSeconds = section.questions.length * SECONDS_PER_QUESTION;
+
+  // Every section gets exactly 20 minutes
+  state.timerSeconds = SECTION_TIME_SECONDS;
+
   updateTimerDisplay();
+
   state.timerInterval = setInterval(() => {
+
     state.timerSeconds--;
+
     updateTimerDisplay();
+
     if (state.timerSeconds <= 0) {
+
       clearInterval(state.timerInterval);
+
       advanceToNextSectionOrFinish();
     }
+
   }, 1000);
 }
 
