@@ -58,7 +58,7 @@ const watchLoginGuideBtn = $("watchLoginGuideBtn");
 
 watchLoginGuideBtn.addEventListener("click", () => {
   window.open(
-    "https://www.youtube.com/watch?v=CDuhbnYZk-U&t=265s",
+    "https://youtu.be/tQv1hJN-8go",
     "_blank"
   );
 });
