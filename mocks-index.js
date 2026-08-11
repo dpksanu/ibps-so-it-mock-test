@@ -27,6 +27,12 @@ const MOCKS = [
     description: "Mock Test 1 with questions across English, Quant, Reasoning, and Professional Knowledge (DBMS, OS, Networks, DSA, OOPS, Software Engineering, COA & Microcontroller etc.).",
     sections: MOCK2_SECTIONS,
   },
+  {
+  id: "mock3",
+  title: "Mock Test 2 (Prelims)",
+  description: "Exam Level Mock Test 3 with questions across English, Quant, Reasoning, and Professional Knowledge (DBMS, OS, Networks, DSA, OOPS, Software Engineering, COA & Microcontroller etc.).",
+  sections: MOCK3_SECTIONS,
+},
   // Add more mocks here, e.g.:
   // {
   //   id: "mock3",
