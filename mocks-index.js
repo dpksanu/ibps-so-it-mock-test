@@ -14,11 +14,13 @@
 //   That's it — it will automatically show up on the Mock Selector screen.
 // ==================================================================================
 
+
+
 const MOCKS = [
   {
     id: "mock1",
     title: "Mock — Question Bank",
-    description: "526 questions across English, Quant, Reasoning, and Professional Knowledge (DBMS, OS, Networks, DSA, OOPS, Software Engineering, COA & Microcontroller).",
+    description: "451 questions across English, Quant, Reasoning, and Professional Knowledge (DBMS, OS, Networks, DSA, OOPS, Software Engineering, COA & Microcontroller).",
     sections: MOCK1_SECTIONS,
   },
   {

@@ -381,6 +381,7 @@
           <div class="test-nav-buttons">
             <button id="prevBtn" class="btn btn-ghost">&larr; Previous</button>
             <button id="clearBtn" class="btn btn-ghost">Clear Response</button>
+            <button id="markForReviewBtn" class="btn btn-review" type="button" aria-pressed="false">☆ Mark for Review</button>
             <button id="nextBtn" class="btn btn-primary">Save &amp; Next &rarr;</button>
             <button id="submitSectionBtn" class="btn btn-danger">Submit Section</button>
           </div>
@@ -391,7 +392,9 @@
             <div><span class="dot answered"></span> Answered</div>
             <div><span class="dot notanswered"></span> Not Answered</div>
             <div><span class="dot notvisited"></span> Not Visited</div>
+            <div><span class="dot marked"></span> Marked for Review</div>
           </div>
+          <div id="markedCount" class="marked-count">0 marked for review</div>
           <div id="questionPalette" class="palette"></div>
         </aside>
       </div>
@@ -411,6 +414,7 @@
             <button class="filter-btn" data-filter="correct">Correct</button>
             <button class="filter-btn" data-filter="wrong">Wrong</button>
             <button class="filter-btn" data-filter="unanswered">Unanswered</button>
+            <button class="filter-btn" data-filter="marked">Marked</button>
           </div>
         </div>
         <div id="reviewList" class="review-list"></div>
@@ -422,7 +426,7 @@
   </main>
 
   <footer id="appFooter">
-    <p><strong>Design and Developed by</strong> Ways to Officer: &middot; Dpksanu — IBPS/RRB/IBPS/SBI SO IT Officer Exam Prep</p>
+    <p><strong>Design and Developed by</strong> Ways to Officer: &middot; Dpksanu — IBPS/RRB/SBI SO IT Officer Exam Prep</p>
     <p>Subscribe: YouTube — Way2Officers Guide &nbsp;|&nbsp; Telegram: t.me/way2officersguide</p>
   </footer>
 

@@ -15,6 +15,7 @@ let state = {
   questionIndex: 0,        // which question within the current section
   answers: {},             // answers[sectionId][questionIndex] = optionIndex (0-4) or null
   visited: {},             // visited[sectionId][questionIndex] = true/false
+  markedForReview: {},     // markedForReview[sectionId][questionIndex] = true/false
   timerSeconds: 0,
   timerInterval: null,
   results: null,           // computed after submission
@@ -209,9 +210,11 @@ function startTest(sectionsToRun) {
   state.questionIndex = 0;
   state.answers = {};
   state.visited = {};
+  state.markedForReview = {};
   sectionsToRun.forEach((sec) => {
     state.answers[sec.id] = new Array(sec.questions.length).fill(null);
     state.visited[sec.id] = new Array(sec.questions.length).fill(false);
+    state.markedForReview[sec.id] = new Array(sec.questions.length).fill(false);
   });
 
   startSectionTimer(state.activeSections[state.sectionIndex]);
@@ -285,6 +288,10 @@ function renderQuestion() {
 
   renderPalette();
   $("prevBtn").disabled = state.sectionIndex === 0 && qi === 0;
+  const isMarked = state.markedForReview[sec.id][qi];
+  $("markForReviewBtn").classList.toggle("active", isMarked);
+  $("markForReviewBtn").setAttribute("aria-pressed", String(isMarked));
+  $("markForReviewBtn").textContent = isMarked ? "★ Marked for Review" : "☆ Mark for Review";
 }
 
 function renderPalette() {
@@ -296,15 +303,20 @@ function renderPalette() {
     let cls = "palette-item";
     if (state.answers[sec.id][idx] !== null) cls += " answered";
     else if (state.visited[sec.id][idx]) cls += " notanswered";
+    if (state.markedForReview[sec.id][idx]) cls += " marked";
     if (idx === state.questionIndex) cls += " current";
     btn.className = cls;
     btn.textContent = idx + 1;
+    const isMarked = state.markedForReview[sec.id][idx];
+    btn.setAttribute("aria-label", `Question ${idx + 1}${isMarked ? ", marked for review" : ""}`);
     btn.addEventListener("click", () => {
       state.questionIndex = idx;
       renderQuestion();
     });
     palette.appendChild(btn);
   });
+  const markedCount = state.markedForReview[sec.id].filter(Boolean).length;
+  $("markedCount").textContent = `${markedCount} marked for review`;
 }
 
 $("nextBtn").addEventListener("click", () => {
@@ -331,6 +343,13 @@ $("prevBtn").addEventListener("click", () => {
 $("clearBtn").addEventListener("click", () => {
   const sec = currentSection();
   state.answers[sec.id][state.questionIndex] = null;
+  renderQuestion();
+});
+
+$("markForReviewBtn").addEventListener("click", () => {
+  const sec = currentSection();
+  const qi = state.questionIndex;
+  state.markedForReview[sec.id][qi] = !state.markedForReview[sec.id][qi];
   renderQuestion();
 });
 
@@ -384,6 +403,7 @@ function finishTest() {
         chosenIdx: chosen,
         explanation: q.explanation,
         status,
+        markedForReview: state.markedForReview[sec.id][idx],
       });
     });
     totalCorrect += correct;
@@ -422,7 +442,9 @@ function renderResults() {
 
 function renderReviewList(filter) {
   const letters = ["A", "B", "C", "D", "E"];
-  const items = state.results.allReviewItems.filter((it) => filter === "all" || it.status === filter);
+  const items = state.results.allReviewItems.filter((it) =>
+    filter === "all" || (filter === "marked" ? it.markedForReview : it.status === filter)
+  );
   const list = $("reviewList");
 
   if (items.length === 0) {
@@ -443,8 +465,8 @@ function renderReviewList(filter) {
     }).join("");
 
     return `
-      <div class="review-item ${it.status}">
-        <div class="r-topic">${it.sectionTitle} &middot; ${it.topic}</div>
+      <div class="review-item ${it.status}${it.markedForReview ? " marked" : ""}">
+        <div class="r-topic">${it.sectionTitle} &middot; ${it.topic}${it.markedForReview ? " &middot; ★ Marked for review" : ""}</div>
         <div class="r-question">${it.question}</div>
         ${optionsHtml}
         <div class="review-explanation"><b>Explanation:</b> ${it.explanation}</div>
