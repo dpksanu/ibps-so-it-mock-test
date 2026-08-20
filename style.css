@@ -749,6 +749,7 @@ body {
 .section-card h3 { margin: 0; color: var(--brand-blue); }
 .section-card .meta { font-size: 0.85rem; color: var(--text-gray); }
 .section-card .btn { margin-top: 8px; align-self: flex-start; }
+.mock-card .btn { margin-top: auto; }
 .full-mock-box {
   background: linear-gradient(135deg, var(--brand-blue), #16276b);
   color: white;

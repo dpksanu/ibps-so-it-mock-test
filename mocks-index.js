@@ -42,4 +42,10 @@ const MOCKS = [
   //   description: "Your description here.",
   //   sections: MOCK3_SECTIONS,
   // },
+  {
+  id: "mock4",
+  title: "Mock Test 3 (Prelims)",
+  description: "Exam Level Mock Test 3 with questions across English, Quant, Reasoning, and Professional Knowledge (DBMS, OS, Networks, DSA, OOPS, Software Engineering, COA & Microcontroller etc.).",
+  sections: MOCK4_SECTIONS,
+},
 ];

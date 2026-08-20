@@ -94,7 +94,7 @@ function renderMockSelector() {
   MOCKS.forEach((mock) => {
     const totalQ = mock.sections.reduce((sum, s) => sum + s.questions.length, 0);
     const card = document.createElement("div");
-    card.className = "section-card";
+    card.className = "section-card mock-card";
     card.innerHTML = `
       <h3>${mock.title}</h3>
       <div class="meta">${totalQ} Questions total &middot; ${mock.sections.length} sections</div>
